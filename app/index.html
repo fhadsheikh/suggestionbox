@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.) styles/vendor.css -->
+        <!-- bower:css -->
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='bower_components/font-awesome/css/font-awesome.min.css' rel="stylesheet" type="text/css">
+    </head>
+    <body ng-app="suggestionboxApp">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Add your site or application content here -->
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="logo"><img src="http://clockworks.ca/images/clockworklogo3.png" height="80"></div>
+                </div>
+<!--
+                <div class="col-md-6">
+                    <div class="profileToggle"><i class="fa fa-user"></i></div>
+                </div>
+-->
+            </div>
+        </div>
+    </div>
+    <div class="subheader">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <ul class="nav navbar-nav">
+                      <li><a href="#/">Tickets</a></li>
+                      <li><a href="#/">Tutorials</a></li>
+                      <li><a ng-href="#">Questions</a></li>
+                      <li class="active"><a ng-href="#/suggestions">Suggestion Box</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <button class="btn btn-default sugg-submit" style="float:right"><a ng-href="#/newsuggestion">Submit Suggestion</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-view=""></div>
+
+
+    <div class="footer">
+        <div class="container">
+            <div class="col-md-2">
+                <h4>Community</h4>
+                <ul class="footer-list">
+                    <li>Tickets</li>
+                    <li>Tutorials</li>
+                    <li>Questions</li>
+                    <li>Suggestions</li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <h4>Links</h4>
+                <ul class="footer-list">
+                    <li>Helpdesk</li>
+                    <li>ClockWorks.ca</li>
+                    <li>Newsletter</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h4>Trending Suggestions</h4>
+                <ul class="footer-list">
+                    <li>Auto-renew accommodations through self registration</li>
+                    <li>Additional detail in email notifications about instructor test info submission</li>
+                    <li>Ability to merge class test definitions</li>
+                    <li>adding a column to the test/exams tab</li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h4>Recent Tutorials</h4>
+                <ul class="footer-list">
+                    <li>How to Upgrade ClockWork Web</li>
+                    <li>How to Uninstall ClockWork Appointment Sync</li>
+                    <li>How to enable online test booking module</li>
+                    <li>How to enable online self registration module</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/suggestion.js"></script>
+        <script src="scripts/controllers/newsuggestion.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
