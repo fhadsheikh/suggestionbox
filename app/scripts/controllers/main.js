@@ -8,10 +8,12 @@
  * Controller of the suggestionboxApp
  */
 angular.module('suggestionboxApp')
-  .controller('MainCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope,$location,authentication) {
+    
+    $scope.logout = function()
+    {
+        authentication.logout();
+        $location.path('/');
+    }
+   
   });

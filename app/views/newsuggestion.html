@@ -9,8 +9,7 @@
         </div>
     </div>
 </div>
-<!--
-<div class="sugg-single">
+<div class="sugg-single" ng-show="wizard.message">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -22,7 +21,7 @@
         </div>
     </div>
 </div>
-<div class="sugg-single">
+<div class="sugg-single" ng-show="wizard.form">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -36,7 +35,7 @@
                         <textarea class="form-control" rows="6"></textarea>
                     </div>
                     
-            <button class="btn btn-lg btn-info btn-block">Submit</button>
+                    <button class="btn btn-lg btn-info btn-block" ng-click="endSubmission()">Submit</button>
                 </form>
             </div>
         </div>
@@ -44,8 +43,7 @@
         </div>
     </div>
 </div>
--->
-<div class="sugg-single">
+<div class="sugg-single" ng-show="wizard.rules">
     <div class="container">
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -62,7 +60,7 @@
         </div>
         <Br>
         <div class="center">
-            <button class="btn btn-lg btn-info">Submit your Suggestion</button>
+            <button ng-click="beginSubmission()" class="btn btn-lg btn-info">Submit your Suggestion</button>
         </div>
     </div>
 </div>

@@ -49,10 +49,6 @@
     color:gray;
 }
 
-.sugg-suggestion-loadmore{
-    text-align:center;
-}
-
 .sugg-single{
     margin-top:30px;
     padding:0px 20px;
@@ -71,9 +67,15 @@
 }
 
 .sugg-single-title{
-    margin-top:40px;
+    margin:40px 0px;
+    border-bottom:solid 1px #d4d4d4;
 }
 
 .sugg-single-rating{
     margin:30px 0px;
+}
+
+
+.selectedSort{
+    font-weight:bold;
 }

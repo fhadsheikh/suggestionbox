@@ -15,8 +15,9 @@
         <!-- endbuild -->
         <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
         <link href='bower_components/font-awesome/css/font-awesome.min.css' rel="stylesheet" type="text/css">
+        
     </head>
-    <body ng-app="suggestionboxApp">
+    <body ng-app="suggestionboxApp" ng-controller="MainCtrl">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -25,13 +26,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="logo"><img src="http://clockworks.ca/images/clockworklogo3.png" height="80"></div>
+                    <div class="logo"><a href="#/"><img src="http://clockworks.ca/images/clockworklogo3.png" height="80"></a></div>
                 </div>
-<!--
                 <div class="col-md-6">
-                    <div class="profileToggle"><i class="fa fa-user"></i></div>
+                    <div class="profileToggle"><a ng-click="logout()"><i class="fa fa-sign-out"></i></a></div>
                 </div>
--->
             </div>
         </div>
     </div>
@@ -53,7 +52,7 @@
         </div>
     </div>
 
-    <div ng-view=""></div>
+    <div class="page" ng-view=""></div>
 
 
     <div class="footer">
@@ -126,10 +125,16 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/suggestions.js"></script>
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/suggestion.js"></script>
         <script src="scripts/controllers/newsuggestion.js"></script>
+        <script src="scripts/services/api.js"></script>
+        <script src="scripts/services/suggestions.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/services/authentication.js"></script>
+        <script src="scripts/controllers/logout.js"></script>
+        <script src="scripts/controllers/main.js"></script>
         <!-- endbuild -->
 </body>
 </html>

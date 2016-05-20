@@ -1,0 +1,56 @@
+<div class="sugg-intro">
+    <div class="container">
+        <h1>Suggestions</h1>
+        <p>Vote for suggestions that you would like to see added into ClockWork</p>
+        <input type="text" placeholder="Search Suggestions" class="searchbox" ng-model="search">
+    </div>
+</div>
+
+<div class="sugg-menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">{{count}} Suggestions</div>
+            <div class="col-md-6 center">
+                Sort by: 
+                <a ng-click="sortPopular('title')" ng-class="sortClass('title')">
+                    Newest
+                </a>
+                | 
+                <a ng-click="sortPopular('likes')" ng-class="sortClass('likes')">Popular</a>
+            </div>
+            <div class="col-md-3 right">
+                <a ng-click="viewMySuggestions()" ng-show="mySuggestions">My Suggestions</a>
+                <a ng-click="viewAllSuggestions()" ng-show="allSuggestions">All Suggestions</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sugg-list">
+    <div class="container">
+        <div class="sugg-suggestion" ng-repeat="suggestion in suggestions | orderBy: order | filter:search">
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="sugg-suggestion-title">
+                                <a ng-href="#/suggestion/{{suggestion.id}}">
+                                    {{suggestion.title}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="sugg-suggestion-desc">Submitted by <strong>{{suggestion.name}}</strong></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 right">
+                    <div class="sugg-suggestion-rating">
+                        <i class="fa fa-thumbs-o-up sugg-suggestion-rating-thumb"></i> {{suggestion.likes | number}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
