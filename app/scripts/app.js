@@ -32,9 +32,7 @@ angular
             }
           })
           .when('/suggestion/:id', {
-            templateUrl: 'views/suggestion.html',
-            controller: 'SuggestionCtrl',
-            controllerAs: 'suggestion',
+            
             resolve: {
                 loggedIn: function(authentication){
                     return authentication.checksession();
@@ -44,7 +42,11 @@ angular
                     return suggestions.getSuggestion($route.current.params.id)
                 }
                 
-            }
+            },
+            templateUrl: 'views/suggestion.html',
+            controller: 'SuggestionCtrl',
+            controllerAs: 'suggestion'
+            
             
           })
           .when('/newsuggestion', {
