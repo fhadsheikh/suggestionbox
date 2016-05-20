@@ -24,30 +24,12 @@ angular
           .when('/suggestions', {
             templateUrl: 'views/suggestions.html',
             controller: 'SuggestionsCtrl',
-            controllerAs: 'suggestions',
-            resolve: {
-                loggedIn: function(authentication){
-                    return authentication.checksession();
-                }
-            }
+            controllerAs: 'suggestions'
           })
           .when('/suggestion/:id', {
-            
-            resolve: {
-                loggedIn: function(authentication){
-                    return authentication.checksession();
-                },
-                
-                suggestion: function(suggestions,$route){
-                    return suggestions.getSuggestion($route.current.params.id)
-                }
-                
-            },
             templateUrl: 'views/suggestion.html',
             controller: 'SuggestionCtrl',
             controllerAs: 'suggestion'
-            
-            
           })
           .when('/newsuggestion', {
             templateUrl: 'views/newsuggestion.html',

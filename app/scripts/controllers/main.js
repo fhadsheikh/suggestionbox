@@ -8,12 +8,7 @@
  * Controller of the suggestionboxApp
  */
 angular.module('suggestionboxApp')
-  .controller('MainCtrl', function ($scope,$location,authentication) {
+  .controller('MainCtrl', function ($scope,$location) {
     
-    $scope.logout = function()
-    {
-        authentication.logout();
-        $location.path('/');
-    }
    
   });

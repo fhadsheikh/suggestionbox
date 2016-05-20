@@ -8,18 +8,11 @@
  * Controller of the suggestionboxApp
  */
 angular.module('suggestionboxApp')
-.controller('LoginCtrl', function ($scope,$location,authentication) {
+.controller('LoginCtrl', function ($scope,$location) {
     
     
     $scope.submit = function(){
         
-        authentication.login($scope.username,$scope.password)
-        .then(function(res){
-            $location.path('/suggestion');
-        })
-        .catch(function(err){
-            $location.path('/login');
-        })
         
     }
 
