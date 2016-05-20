@@ -25,7 +25,7 @@ angular.module('suggestionboxApp')
 
     var height = $(window).height();
     console.log(height);
-    
+    console.log('test2');
     $("#login").css("min-height",height-490);
 
 });
