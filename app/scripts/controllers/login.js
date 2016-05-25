@@ -8,17 +8,15 @@
  * Controller of the suggestionboxApp
  */
 angular.module('suggestionboxApp')
-.controller('LoginCtrl', function ($scope,$location) {
-    
+.controller('LoginCtrl', function ($scope,$location,layout,user) {
     
     $scope.submit = function(){
         
-        
+        user.login($scope.credentials.username, $scope.credentials.password);
     }
-
-    var height = $(window).height();
-    console.log(height);
-    console.log('test2');
-    $("#login").css("min-height",height-490);
+    
+    // Stick footer to bottom of screen
+    layout.stickyFooter(490);
 
 });
+ 

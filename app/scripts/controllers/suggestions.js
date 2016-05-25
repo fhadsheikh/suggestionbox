@@ -8,7 +8,7 @@
  * Controller of the suggestionboxApp
  */
 angular.module('suggestionboxApp')
-  .controller('SuggestionsCtrl', function ($scope,$location,suggestions) {
+  .controller('SuggestionsCtrl', function ($scope,$location,suggestions,layout) {
     
     $scope.viewMySuggestions = function()
     {
@@ -47,8 +47,7 @@ angular.module('suggestionboxApp')
     
     $scope.sortPopular('likes');
     
-    console.log('setting height for suggestions');
-    var height = $(window).height();
-    $(".sugg-list").css("min-height",height-810);
+    // Stick footer to bottom of screen
+    layout.stickyFooter(810);
     
   });
