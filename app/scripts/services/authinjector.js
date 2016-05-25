@@ -21,7 +21,7 @@ angular.module('suggestionboxApp')
             
             console.log(config.headers);
             
-            return config;
+            return config; 
         }
         
     };
