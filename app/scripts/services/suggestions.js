@@ -8,7 +8,7 @@
  * Factory in the suggestionboxApp.
  */
 angular.module('suggestionboxApp')
-  .factory('suggestions', function ($http,$q,API) {
+  .factory('suggestions', function ($http,$q,API,$location,user) {
     
     var suggestion = null;
     
@@ -24,6 +24,8 @@ angular.module('suggestionboxApp')
           })
           .error(function onError(err){
               defer.reject(err);
+              user.logout();
+              $location.path('/login');
           });
 
           return defer.promise;
@@ -43,6 +45,8 @@ angular.module('suggestionboxApp')
                 })
                 .error(function onError(err){
                     deferred.reject(err);
+                    user.logout();
+                    $location.path('/login');
                 });
             
             return deferred.promise;
@@ -58,6 +62,8 @@ angular.module('suggestionboxApp')
             })
             .error(function onError(err){
                 deferred.reject(err);
+                user.logout();
+                $location.path('/login');
             })
             
             return deferred.promise;

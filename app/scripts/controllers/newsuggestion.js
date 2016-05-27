@@ -8,7 +8,7 @@
  * Controller of the suggestionboxApp
  */
 angular.module('suggestionboxApp')
-.controller('NewsuggestionCtrl', function ($scope) {
+.controller('NewsuggestionCtrl', function ($scope,layout) {
     
     $scope.wizard = {};
     $scope.wizard.rules = true;
@@ -29,7 +29,7 @@ angular.module('suggestionboxApp')
         $scope.wizard.message = true;
     }
     
-    var height = $(window).height();
-    $(".sugg-single").css("min-height",height-655);
+    // Stick footer to bottom of screen
+    layout.stickyFooter(655);
 
 });

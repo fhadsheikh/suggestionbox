@@ -8,7 +8,7 @@
  * Controller of the suggestionboxApp
  */
 angular.module('suggestionboxApp')
-  .controller('SuggestionCtrl', function ($scope,$routeParams, suggestions) {
+  .controller('SuggestionCtrl', function ($scope,$routeParams,layout,suggestions) {
 
         $scope.sugg = suggestions.suggestion();
 
@@ -19,7 +19,7 @@ angular.module('suggestionboxApp')
 //    })
 //    
     
-     var height = $(window).height();
-        $("#suggestion").css("min-height",height-594);
+    // Stick footer to bottom of screen
+    layout.stickyFooter(594);
     
   });
