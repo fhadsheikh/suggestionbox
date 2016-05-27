@@ -15,6 +15,7 @@
         <!-- endbuild -->
         <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
         <link href='bower_components/font-awesome/css/font-awesome.min.css' rel="stylesheet" type="text/css">
+        <link href='bower_components/angular-toastr/dist/angular-toastr.min.css' rel="stylesheet" type="text/css">
         
     </head>
     <body ng-app="suggestionboxApp" ng-controller="MainCtrl as main">
@@ -24,12 +25,14 @@
     <!-- Add your site or application content here -->
     <div class="header">
         <div class="container">
+            
+                    <div class="profileToggle"><a ng-click="main.logout()">{{user.name}} <i class="fa fa-sign-out"></i></a></div>
             <div class="row">
+                
                 <div class="col-md-6">
                     <div class="logo"><a href="#/"><img src="http://clockworks.ca/images/clockworklogo3.png" height="80"></a></div>
                 </div>
                 <div class="col-md-6">
-                    <div class="profileToggle"><a ng-click="main.logout()"><i class="fa fa-sign-out"></i></a></div>
                 </div>
             </div>
         </div>
@@ -123,6 +126,7 @@
     <!-- endbower -->
     <script src="bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
     <script src="bower_components/a0-angular-storage/dist/angular-storage.min.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->

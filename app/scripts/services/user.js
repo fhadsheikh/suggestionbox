@@ -8,13 +8,19 @@
  * Factory in the suggestionboxApp.
  */
 angular.module('suggestionboxApp')
-  .factory('user', function ($q,$location,$http,API,jwtHelper,store) {
+  .factory('user', function ($q,$location,$http,API,jwtHelper,store,$rootScope,toastr) {
     
     var isInArray = function(permission, permissions){
         return permissions.indexOf(permission) > -1;
     }
+    
+    var user = null;
         
     return {
+        
+        user: function(){
+            return user;
+        },
         
         checkLogin: function(){
             
@@ -63,9 +69,16 @@ angular.module('suggestionboxApp')
             .then(function(res){
                 store.set('jwt',res.data);
                 deferred.resolve(res.data);
+                
+                $rootScope.$broadcast('userDataChanged', {user: jwtHelper.decodeToken(res.data).data});
+                
+                toastr.clear();
+                toastr.info('Login Successful','Success');
+                
                 $location.path('/suggestions');
             }, function(err){
                 console.log(err);
+                toastr.error(err.data,'Error');
                 deferred.reject(err);
             });
             

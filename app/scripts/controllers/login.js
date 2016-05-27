@@ -11,7 +11,6 @@ angular.module('suggestionboxApp')
 .controller('LoginCtrl', function ($scope,$location,layout,user) {
     
     $scope.submit = function(){
-        
         user.login($scope.credentials.username, $scope.credentials.password);
     }
     

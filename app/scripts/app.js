@@ -19,7 +19,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'angular-jwt',
-    'angular-storage'
+    'angular-storage',
+    'toastr'
   ])
     .config(function ($routeProvider,$locationProvider,$httpProvider,jwtInterceptorProvider) {
         $routeProvider
