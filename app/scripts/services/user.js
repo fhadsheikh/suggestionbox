@@ -18,7 +18,7 @@ angular.module('suggestionboxApp')
         
     return {
         
-        user: function(){
+        getUser: function(){
             return user;
         },
         
@@ -70,7 +70,9 @@ angular.module('suggestionboxApp')
                 store.set('jwt',res.data);
                 deferred.resolve(res.data);
                 
-                $rootScope.$broadcast('userDataChanged', {user: jwtHelper.decodeToken(res.data).data});
+                user = jwtHelper.decodeToken(res.data).data;
+                
+                $rootScope.$broadcast('userDataChanged', {user: user});
                 
                 toastr.clear();
                 toastr.info('Login Successful','Success');

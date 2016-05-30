@@ -8,11 +8,13 @@
  * Controller of the suggestionboxApp
  */
 angular.module('suggestionboxApp')
-  .controller('SuggestionsCtrl', function ($scope,$location,suggestions,layout) {
+  .controller('SuggestionsCtrl', function ($scope,$location,suggestions,layout,user) {
+    
+    var userProfile = user.getUser();
     
     $scope.viewMySuggestions = function()
     {
-        suggestions.getMySuggestions(2).then(function(res){
+        suggestions.getMySuggestions().then(function(res){
             $scope.suggestions = res;
             $scope.count = res.length;
             $scope.mySuggestions = false;

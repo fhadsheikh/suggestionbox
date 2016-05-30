@@ -12,7 +12,7 @@ angular.module('suggestionboxApp')
     
     var suggestion = null;
     
-    return {
+    return { 
         
         getSuggestions: function () {
 
@@ -56,7 +56,7 @@ angular.module('suggestionboxApp')
             
             var deferred = $q.defer();
             
-            $http.get(API.url+'mysuggestions?id='+id)
+            $http.get(API.url+'mysuggestions')
             .success(function onSuccess(res){
                 deferred.resolve(res);
             })
