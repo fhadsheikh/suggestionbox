@@ -8,7 +8,7 @@
  * Controller of the suggestionboxApp
  */
 angular.module('suggestionboxApp')
-.controller('NewsuggestionCtrl', function ($scope,layout) {
+.controller('NewsuggestionCtrl', function ($scope,layout,suggestions,toastr) {
     
     $scope.wizard = {};
     $scope.wizard.rules = true;
@@ -24,6 +24,22 @@ angular.module('suggestionboxApp')
     
     $scope.endSubmission = function()
     {
+        
+        $scope.suggestion = {};
+        var title = $scope.newsuggestion.title;
+        var summary = $scope.newsuggestion.summary;
+        
+        suggestions.newSuggestion(title,summary)
+        .then(function(res){
+            $location.path('')
+            toastr.info('New Suggestion submitted successfully','Success');
+        })
+        .catch(function(err){
+            toastr.error(err,'Error');
+        })
+        
+        
+        
         $scope.wizard.rules = false;
         $scope.wizard.form = false;
         $scope.wizard.message = true;

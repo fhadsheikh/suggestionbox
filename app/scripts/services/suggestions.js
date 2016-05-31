@@ -14,6 +14,9 @@ angular.module('suggestionboxApp')
     
     return { 
         
+        suggestion: function(){
+            return suggestion;  
+        },
         getSuggestions: function () {
 
           var defer = $q.defer();
@@ -30,9 +33,6 @@ angular.module('suggestionboxApp')
 
           return defer.promise;
             
-        },
-        suggestion: function(){
-            return suggestion;  
         },
         getSuggestion: function(id){
             
@@ -67,9 +67,44 @@ angular.module('suggestionboxApp')
             })
             
             return deferred.promise;
+        },
+        newSuggestion: function(title,summary){
             
-        }
-        
-    
+            var data = $.param({
+                title: title,
+                summary: summary                
+            });
+            
+            var deferred = $q.defer();
+            
+            $http.post(API.url + 'suggestion', data)
+            .success(function(res){
+                deferred.resolve(res);
+            })
+            .error(function(err){
+                deferred.reject(err);
+            });
+            
+            return deferred.promise;
+        },
+        likeSuggestion: function(id){
+            
+            var data = $.param({
+                id: id
+            });
+            
+            var deferred = $q.defer();
+            
+            $http.post(API.url + 'suggestion/vote',data)
+            .success(function(res){
+                deferred.resolve(res);
+            })
+            .error(function(err){
+                deferred.reject(err);
+            });
+            
+            return deferred.promise;
+                        
+        }    
     };
   });

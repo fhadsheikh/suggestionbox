@@ -16,7 +16,7 @@
                     Newest
                 </a>
                 | 
-                <a ng-click="sortPopular('likes')" ng-class="sortClass('likes')">Popular</a>
+                <a ng-click="sortPopular('votes')" ng-class="sortClass('votes')">Popular</a>
             </div>
             <div class="col-md-3 right">
                 <a ng-click="viewMySuggestions()" ng-show="mySuggestions">My Suggestions</a>
@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-md-3 right">
                     <div class="sugg-suggestion-rating">
-                        <i class="fa fa-thumbs-o-up sugg-suggestion-rating-thumb"></i> {{suggestion.likes | number}}
+                        <i class="fa fa-thumbs-o-up sugg-suggestion-rating-thumb"></i> {{suggestion.votes | number}}
                     </div>
                 </div>
             </div>
