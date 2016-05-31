@@ -19,7 +19,11 @@ angular.module('suggestionboxApp')
     return {
         
         getUser: function(){
-            return user;
+            if(!user){
+                return user;
+            } else {
+                return false;
+            }
         },
         
         checkLogin: function(){
@@ -27,8 +31,11 @@ angular.module('suggestionboxApp')
             var deferred = $q.defer();
             
             if(store.get('jwt') && !jwtHelper.isTokenExpired(store.get('jwt'))){
+                $rootScope.$broadcast('userLoggedIn', true);
                 deferred.resolve('user is logged in');
             } else {
+                
+                $rootScope.$broadcast('userLoggedIn', false);
                 $location.path('/login');
                 deferred.reject('user is not logged in');
             }
@@ -73,9 +80,6 @@ angular.module('suggestionboxApp')
                 user = jwtHelper.decodeToken(res.data).data;
                 
                 $rootScope.$broadcast('userDataChanged', {user: user});
-                
-                toastr.clear();
-                toastr.info('Login Successful','Success');
                 
                 $location.path('/suggestions');
             }, function(err){

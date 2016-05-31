@@ -59,19 +59,32 @@ a:hover{
     font-weight:600;
 }
 
-.profileToggle{
-    background-color: #47C4F0;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    float: right;
-    color: white;
-    padding: 5px 15px;
-    font-family: 'open sans', sans-serif;
-    font-weight: bold;
-    text-transform: uppercase;
-    position: absolute;
-    top: 0px;
-    right: 40px;
+.user-menu{
+    list-style: none;
+    padding-top:30px;
+    text-align:right;
+}
+
+.user-menu li{
+    display: inline;
+    padding: 20px 6px;
+    color: #717171;
+}
+
+.user-menu li ul li{
+    display:block;
+    padding: 0px 6px;
+    color: #717171;
+}
+
+.user-menu li ul li a{
+    padding:7px;
+    text-align:left;
+}
+
+.user-menu li ul li a:hover{
+    background-color:white;
+    font-weight:600;
 }
 
 /* SUBHEADER */
@@ -82,11 +95,20 @@ a:hover{
 
 .active{
     border-top: solid 1px #47C4F0;
-    font-weight:600;
+}
+
+.navbar-nav li{
+    text-align: center;
+}
+
+.navbar-nav li a i{
+    font-size: 14pt;
+    padding: 2px 20px 10px 20px;
+    color: #777777;
 }
 
 .navbar-nav li:hover{
-    font-weight: 600;
+//    font-weight: 600;
 }
 
 // Login Page
