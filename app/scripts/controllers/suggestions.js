@@ -32,22 +32,29 @@ angular.module('suggestionboxApp')
         });
     }
     
+    $scope.openSuggestion = function(sugg){
+        if(sugg.status == 1){
+            $location.path('/suggestion/'+sugg.id);
+        } else {
+            $location.path('/suggestions/pending/'+sugg.id);
+        }
+    }
     
     $scope.sortPopular = function(item)
     {
-        $scope.order = '-'+item;
+        $scope.order = item;
         $scope.selectedSort = item;
     }
     
     
     $scope.sortClass = function(item)
     {
-        if(item == $scope.selectedSort){return 'selectedSort';}
+        if(item == $scope.selectedSort || '-'+item == $scope.selectedSort){return 'selectedSort';}
     }
     
     $scope.viewAllSuggestions();
     
-    $scope.sortPopular('likes');
+    $scope.sortPopular('-votes');
     
     // Stick footer to bottom of screen
     layout.stickyFooter(810);

@@ -11,7 +11,6 @@ angular.module('suggestionboxApp')
   .controller('SuggestionCtrl', function ($scope,$routeParams,layout,suggestions,toastr) {
 
     $scope.sugg = suggestions.suggestion();
-    
     console.log($scope.sugg);
     
     $scope.like = function(id)

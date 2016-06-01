@@ -20,7 +20,8 @@ angular
     'ngTouch',
     'angular-jwt',
     'angular-storage',
-    'toastr'
+    'toastr',
+    'ngScrollbars'
   ])
     .config(function ($routeProvider,$locationProvider,$httpProvider,jwtInterceptorProvider) {
         $routeProvider
@@ -72,29 +73,40 @@ angular
                 }
             }
           })
+          .when('/suggestions/pending/:id', {
+            templateUrl: 'views/pendingsuggestion.html',
+            controller: 'PendingsuggestionCtrl',
+            resolve: {
+                authenticate: function(user){
+                    return user.checkLogin() && user.isAllowed('admin');
+                },
+                suggestion: function(suggestions,$route){
+                    return suggestions.getSuggestion($route.current.params.id)
+                }
+            }
+          })
           .otherwise({
             redirectTo: '/suggestions'
           });
     
-//        console.log(localStorage.getItem('user'));
-//        if(localStorage.getItem('jwt') !== null){
-//            jwtInterceptorProvider.tokenGetter = function(){
-//                return localStorage.getItem('jwt');
-//            }
-//            
-//        
-//        $httpProvider.interceptors.push('jwtInterceptor');
-//            
-//            }
+        $httpProvider.interceptors.push('authInjector');
     
-//    $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+        
     
-    $httpProvider.interceptors.push('authInjector');
     
     })
-    .run(function(){
-    
+    .run(function(){    
         
        
     })
+
+    .filter("toArray", function(){
+        return function(obj) {
+            var result = [];
+            angular.forEach(obj, function(val, key) {
+                result.push(val);
+            });
+            return result;
+        };
+    });
 

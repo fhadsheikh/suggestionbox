@@ -17,9 +17,7 @@ angular.module('suggestionboxApp')
         
         var parent = this;
     
-        $rootScope.$on('userLoggedIn',function(event,args){
-            console.log(args);
-            
+        $rootScope.$on('userLoggedIn',function(event,args){            
             if(args){
                 parent.header = true;
                 parent.footer = true;

@@ -13,28 +13,23 @@ angular.module('suggestionboxApp')
     var isInArray = function(permission, permissions){
         return permissions.indexOf(permission) > -1;
     }
-    
     var user = null;
         
     return {
         
         getUser: function(){
-            if(!user){
-                return user;
-            } else {
-                return false;
-            }
+            return user;
         },
         
         checkLogin: function(){
             
             var deferred = $q.defer();
-            
-            if(store.get('jwt') && !jwtHelper.isTokenExpired(store.get('jwt'))){
+                        
+            if(localStorage.getItem('jwt') && !jwtHelper.isTokenExpired(localStorage.getItem('jwt'))){
                 $rootScope.$broadcast('userLoggedIn', true);
                 deferred.resolve('user is logged in');
             } else {
-                
+                console.log('fail');
                 $rootScope.$broadcast('userLoggedIn', false);
                 $location.path('/login');
                 deferred.reject('user is not logged in');
@@ -49,7 +44,7 @@ angular.module('suggestionboxApp')
             
             if(store.get('jwt') !== null){
                 
-                var jwt = jwtHelper.decodeToken(store.get('jwt'));
+                var jwt = jwtHelper.decodeToken(localStorage.getItem('jwt'));
                 
                 if(isInArray(permission, jwt.data.permissions)){
                     deferred.resolve('User has acccess');
@@ -96,7 +91,7 @@ angular.module('suggestionboxApp')
             var deferred = $q.defer();
             
             if(store.get('jwt')){
-                store.remove('jwt')
+                store.remove('jwt');
                 deferred.resolve('User was logged out');
                 $location.path('/login');
             } else {
