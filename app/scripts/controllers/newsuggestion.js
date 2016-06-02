@@ -46,6 +46,6 @@ angular.module('suggestionboxApp')
     }
     
     // Stick footer to bottom of screen
-    layout.stickyFooter(655);
+    layout.stickyFooter(625);
 
 });

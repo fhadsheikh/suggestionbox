@@ -57,6 +57,6 @@ angular.module('suggestionboxApp')
     $scope.sortPopular('-votes');
     
     // Stick footer to bottom of screen
-    layout.stickyFooter(810);
+    layout.stickyFooter(750);
     
   });

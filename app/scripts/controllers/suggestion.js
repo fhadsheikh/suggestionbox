@@ -11,7 +11,6 @@ angular.module('suggestionboxApp')
   .controller('SuggestionCtrl', function ($scope,$routeParams,layout,suggestions,toastr) {
 
     $scope.sugg = suggestions.suggestion();
-    console.log($scope.sugg);
     
     $scope.like = function(id)
     {
@@ -23,6 +22,6 @@ angular.module('suggestionboxApp')
 
     
     // Stick footer to bottom of screen
-    layout.stickyFooter(594);
+    layout.stickyFooter(564);
     
   });

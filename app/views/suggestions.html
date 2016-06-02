@@ -41,7 +41,7 @@
                         <div class="col-md-12">
                             <div class="sugg-suggestion-title">
                                 <a ng-click="openSuggestion(suggestion)">
-                                    {{suggestion.title}} <span ng-hide="suggestion.status == 1">[PENDING]</span>
+                                    {{suggestion.title}} <span ng-hide="suggestion.status == 1"><span class="label label-warning" style="font-weight:500">PENDING</span></span>
                                 </a>
                             </div>
                         </div>

@@ -12,12 +12,20 @@ angular.module('suggestionboxApp')
     
     var suggestion = null;
     
-    return { 
+    var messages = null;
+    
+    return {
         
-        suggestion: function(){
+        suggestion: function()
+        {
             return suggestion;  
         },
-        getSuggestions: function () {
+        messages: function()
+        {
+            return messages;  
+        },
+        getSuggestions: function () 
+        {
 
           var defer = $q.defer();
 
@@ -34,7 +42,8 @@ angular.module('suggestionboxApp')
           return defer.promise;
             
         },
-        getSuggestion: function(id){
+        getSuggestion: function(id)
+        {
             
             var deferred = $q.defer();
                 $http.get(API.url+'suggestion?id='+id)
@@ -51,7 +60,8 @@ angular.module('suggestionboxApp')
             return deferred.promise;
             
         },
-        getMySuggestions: function(id){
+        getMySuggestions: function(id)
+        {
             
             var deferred = $q.defer();
             
@@ -67,7 +77,8 @@ angular.module('suggestionboxApp')
             
             return deferred.promise;
         },
-        newSuggestion: function(title,summary){
+        newSuggestion: function(title,summary)
+        {
             
             var data = $.param({
                 title: title,
@@ -86,7 +97,8 @@ angular.module('suggestionboxApp')
             
             return deferred.promise;
         },
-        likeSuggestion: function(id){
+        likeSuggestion: function(id)
+        {
             
             var data = $.param({
                 id: id
@@ -105,7 +117,56 @@ angular.module('suggestionboxApp')
             });
             
             return deferred.promise;
-                        
-        }    
+        },
+        getMessages: function(id)
+        {
+            
+            var deferred = $q.defer();
+            
+            $http.get(API.url + 'suggestion/messages?id='+id)
+            .success(function(res){
+                messages = res;
+                deferred.resolve(res);
+            })
+            .error(function(err){
+                deferred.reject(err);
+            });
+            
+            return deferred.promise;
+        },
+        submitMessage: function(id,message)
+        {
+            var data = $.param({
+                id: id,
+                message: message
+            });
+            
+            var deferred = $q.defer();
+            
+            $http.post(API.url + 'suggestion/message',data)
+            .success(function(res){
+                deferred.resolve(res);
+            })
+            .error(function(err){
+                deferred.reject(err);
+            });
+            
+            return deferred.promise;
+            
+        },
+        getMessage: function(id)
+        {
+            var deferred = $q.defer();
+            
+            $http.get(API.url + 'suggestion/message?id='+id)
+            .success(function(res){
+                deferred.resolve(res);
+            })
+            .error(function(err){
+                deferred.reject(err);
+            });
+            
+            return deferred.promise;
+        }
     };
   });

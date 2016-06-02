@@ -21,7 +21,9 @@ angular
     'angular-jwt',
     'angular-storage',
     'toastr',
-    'ngScrollbars'
+    'ngScrollbars',
+    'ngtimeago',
+    'oitozero.ngSweetAlert'
   ])
     .config(function ($routeProvider,$locationProvider,$httpProvider,jwtInterceptorProvider) {
         $routeProvider
@@ -81,8 +83,12 @@ angular
                     return user.checkLogin() && user.isAllowed('admin');
                 },
                 suggestion: function(suggestions,$route){
-                    return suggestions.getSuggestion($route.current.params.id)
+                    return suggestions.getSuggestion($route.current.params.id);
+                },
+                messages: function(suggestions,$route){
+                    return suggestions.getMessages($route.current.params.id);
                 }
+                
             }
           })
           .otherwise({
