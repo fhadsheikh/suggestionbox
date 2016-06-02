@@ -24,17 +24,17 @@ angular.module('suggestionboxApp')
             .then(function(res){
                 $scope.messages.unshift(res);
                 $scope.newMessage = null;
-                SweetAlert.swal("Message Sent!", "You will receive an email notification when responded to.", "success");
+                SweetAlert.swal('Message Sent!', 'You will receive an email notification when responded to.', 'success');
 
             })
             .catch(function(err){
                 console.log(err);
-            })
+            });
         })
         .catch(function(err){
             console.log(err);
-        })
-    }
+        });
+    };
     
     // Stick footer to bottom of screen
     layout.stickyFooter(594);

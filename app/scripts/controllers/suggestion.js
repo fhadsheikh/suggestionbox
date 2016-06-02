@@ -15,10 +15,10 @@ angular.module('suggestionboxApp')
     $scope.like = function(id)
     {
         suggestions.likeSuggestion(id)
-        .then(function(res){
+        .then(function(){
             toastr.info('You just liked suggestion '+id);
         });
-    }
+    };
 
     
     // Stick footer to bottom of screen

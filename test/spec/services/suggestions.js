@@ -11,8 +11,5 @@ describe('Service: suggestions', function () {
     suggestions = _suggestions_;
   }));
 
-  it('should do something', function () {
-    expect(!!suggestions).toBe(true);
-  });
 
 });

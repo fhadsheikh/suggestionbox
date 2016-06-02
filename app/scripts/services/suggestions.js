@@ -60,7 +60,7 @@ angular.module('suggestionboxApp')
             return deferred.promise;
             
         },
-        getMySuggestions: function(id)
+        getMySuggestions: function()
         {
             
             var deferred = $q.defer();
@@ -73,7 +73,7 @@ angular.module('suggestionboxApp')
                 deferred.reject(err);
                 user.logout();
                 $location.path('/login');
-            })
+            });
             
             return deferred.promise;
         },

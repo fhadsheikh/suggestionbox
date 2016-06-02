@@ -31,6 +31,6 @@ angular.module('suggestionboxApp')
             user.logout();
             $scope.user = null;
             $location.path('/');
-        }
+        };
 
     });

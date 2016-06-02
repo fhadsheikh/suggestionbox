@@ -20,7 +20,7 @@ angular.module('suggestionboxApp')
         $scope.wizard.rules = false;
         $scope.wizard.form = true;
         $scope.wizard.message = false;
-    }
+    };
     
     $scope.endSubmission = function()
     {
@@ -30,20 +30,20 @@ angular.module('suggestionboxApp')
         var summary = $scope.newsuggestion.summary;
         
         suggestions.newSuggestion(title,summary)
-        .then(function(res){
+        .then(function(){
             $location.path('/suggestions');
             toastr.info('New Suggestion submitted successfully','Success');
         })
         .catch(function(err){
             toastr.error(err,'Error');
-        })
+        });
         
         
         
         $scope.wizard.rules = false;
         $scope.wizard.form = false;
         $scope.wizard.message = true;
-    }
+    };
     
     // Stick footer to bottom of screen
     layout.stickyFooter(625);

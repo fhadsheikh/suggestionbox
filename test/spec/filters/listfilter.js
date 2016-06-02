@@ -11,9 +11,5 @@ describe('Filter: listFilter', function () {
     listFilter = $filter('listFilter');
   }));
 
-  it('should return the input prefixed with "listFilter filter:"', function () {
-    var text = 'angularjs';
-    expect(listFilter(text)).toBe('listFilter filter: ' + text);
-  });
 
 });

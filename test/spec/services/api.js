@@ -11,8 +11,4 @@ describe('Service: API', function () {
     API = _API_;
   }));
 
-  it('should do something', function () {
-    expect(!!API).toBe(true);
-  });
-
 });

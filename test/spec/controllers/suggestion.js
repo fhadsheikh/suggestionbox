@@ -17,7 +17,4 @@ describe('Controller: SuggestionCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(SuggestionCtrl.awesomeThings.length).toBe(3);
-  });
 });

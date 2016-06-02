@@ -14,7 +14,7 @@ angular.module('suggestionboxApp')
         stickyFooter: function (subtract) {
         
             var height = $(window).height();
-            $(".stickyFooterDependancy").css("min-height",height-subtract);
+            $('.stickyFooterDependancy').css('min-height',height-subtract);
         }
     };
     

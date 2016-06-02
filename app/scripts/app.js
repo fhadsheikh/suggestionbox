@@ -25,7 +25,7 @@ angular
     'ngtimeago',
     'oitozero.ngSweetAlert'
   ])
-    .config(function ($routeProvider,$locationProvider,$httpProvider,jwtInterceptorProvider) {
+    .config(function ($routeProvider,$locationProvider,$httpProvider) {
         $routeProvider
           .when('/suggestions', {
             templateUrl: 'views/suggestions.html',
@@ -49,7 +49,7 @@ angular
                     return user.isAllowed('read');
                 },
                 suggestion: function(suggestions,$route){
-                    return suggestions.getSuggestion($route.current.params.id)
+                    return suggestions.getSuggestion($route.current.params.id);
                 }
             }
           })
@@ -69,9 +69,9 @@ angular
             controllerAs: 'login',
             resolve: {
                 loggedIn: function(user,$location){
-                   user.checkLogin().then(function(res){
+                   user.checkLogin().then(function(){
                        $location.path('/');
-                   })
+                   });
                 }
             }
           })
@@ -106,10 +106,10 @@ angular
        
     })
 
-    .filter("toArray", function(){
+    .filter('toArray', function(){
         return function(obj) {
             var result = [];
-            angular.forEach(obj, function(val, key) {
+            angular.forEach(obj, function(val) {
                 result.push(val);
             });
             return result;

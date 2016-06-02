@@ -12,7 +12,8 @@ angular.module('suggestionboxApp')
     
     var isInArray = function(permission, permissions){
         return permissions.indexOf(permission) > -1;
-    }
+    };
+    
     var user = null;
         
     return {

@@ -11,8 +11,4 @@ describe('Service: layout', function () {
     layout = _layout_;
   }));
 
-  it('should do something', function () {
-    expect(!!layout).toBe(true);
-  });
-
 });

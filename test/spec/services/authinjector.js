@@ -11,8 +11,5 @@ describe('Service: authInjector', function () {
     authInjector = _authInjector_;
   }));
 
-  it('should do something', function () {
-    expect(!!authInjector).toBe(true);
-  });
 
 });
