@@ -1,24 +1,23 @@
 <!doctype html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>MyClockWork</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.) styles/vendor.css -->
         <!-- bower:css -->
-        <link rel='stylesheet' href='bower_components/sweetalert/dist/sweetalert.css' />
+        <link rel='stylesheet' href='/bower_components/sweetalert/dist/sweetalert.css' />
+        <link rel='stylesheet' href='/bower_components/angular-toastr/dist/angular-toastr.css' />
+        <link rel='stylesheet' href='/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css' />
         <!-- endbower -->
         <!-- endbuild -->
         <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="/styles/main.css">
         <!-- endbuild -->
         <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-        <link href='bower_components/font-awesome/css/font-awesome.min.css' rel="stylesheet" type="text/css">
-        <link href='bower_components/angular-toastr/dist/angular-toastr.min.css' rel="stylesheet" type="text/css">
-        <link href='bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css' rel="stylesheet" type="text/css">
-        
+        <base href="/">
     </head>
     <body ng-app="suggestionboxApp" ng-controller="MainCtrl as main">
     <!--[if lte IE 8]>
@@ -27,7 +26,7 @@
     <!-- Add your site or application content here -->
     <header ng-show="main.header"></header>
 
-    <div class="page" ng-view=""></div>
+    <div class="page" ng-view="" autoscroll="true"></div>
 
 
     <footer ng-show="main.footer"></footer>
@@ -60,6 +59,9 @@
     <script src="bower_components/ng-timeago/ngtimeago.js"></script>
     <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
     <script src="bower_components/ngSweetAlert/SweetAlert.js"></script>
+    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script src="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"></script>
     <!-- endbower -->
     <script src="bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
     <script src="bower_components/a0-angular-storage/dist/angular-storage.min.js"></script>
@@ -70,19 +72,22 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/suggestions.js"></script>
-    <script src="scripts/controllers/suggestion.js"></script>
-    <script src="scripts/controllers/newsuggestion.js"></script>
-    <script src="scripts/controllers/pendingsuggestion.js"></script>
-    <script src="scripts/services/api.js"></script>
-    <script src="scripts/services/suggestions.js"></script>
-    <script src="scripts/controllers/login.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/services/layout.js"></script>
-    <script src="scripts/services/user.js"></script>
-    <script src="scripts/services/authinjector.js"></script>
-    <script src="scripts/directives/footer.js"></script>
-    <script src="scripts/directives/header.js"></script>
+    <script src="scripts/controllers/suggestions.ctrl.js"></script>
+    <script src="scripts/controllers/suggestion.ctrl.js"></script>
+    <script src="scripts/controllers/newsuggestion.ctrl.js"></script>
+    <script src="scripts/controllers/pendingsuggestion.ctrl.js"></script>
+    <script src="scripts/controllers/login.ctrl.js"></script>
+    <script src="scripts/controllers/main.ctrl.js"></script>
+    <script src="scripts/directives/footer.drv.js"></script>
+    <script src="scripts/directives/header.drv.js"></script>
+    <script src="scripts/services/authinjector.srv.js"></script>
+    <script src="scripts/services/api.cnst.js"></script>
+    <script src="scripts/services/suggestions.srv.js"></script>
+    <script src="scripts/services/layout.srv.js"></script>
+    <script src="scripts/services/user.srv.js"></script>
+    <script src="scripts/controllers/admin.js"></script>
+    <script src="scripts/controllers/forbidden.ctrl.js"></script>
+    <script src="scripts/controllers/notfound.ctrl.js"></script>
     <!-- endbuild -->
 </body>
 </html>

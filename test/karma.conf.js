@@ -34,6 +34,9 @@ module.exports = function(config) {
       'bower_components/ng-timeago/ngtimeago.js',
       'bower_components/sweetalert/dist/sweetalert.min.js',
       'bower_components/ngSweetAlert/SweetAlert.js',
+      'bower_components/angular-toastr/dist/angular-toastr.tpls.js',
+      'bower_components/jquery-mousewheel/jquery.mousewheel.js',
+      'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

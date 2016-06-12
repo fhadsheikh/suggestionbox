@@ -20,10 +20,7 @@
             <div class="col-md-4">
                 <h4>Trending Suggestions</h4>
                 <ul class="footer-list">
-                    <li>Auto-renew accommodations through self registration</li>
-                    <li>Additional detail in email notifications about instructor test info submission</li>
-                    <li>Ability to merge class test definitions</li>
-                    <li>adding a column to the test/exams tab</li>
+                    <li ng-repeat="suggestion in main.recentSuggestions"><a ng-href="suggestion/{{suggestion.id}}">{{suggestion.title}}</a></li>
                 </ul>
             </div>
             <div class="col-md-4">

@@ -35,7 +35,6 @@ angular.module('suggestionboxApp')
           })
           .error(function onError(err){
               defer.reject(err);
-              user.logout();
               $location.path('/login');
           });
 
@@ -53,7 +52,6 @@ angular.module('suggestionboxApp')
                 })
                 .error(function onError(err){
                     deferred.reject(err);
-                    user.logout();
                     $location.path('/login');
                 });
             
@@ -71,7 +69,6 @@ angular.module('suggestionboxApp')
             })
             .error(function onError(err){
                 deferred.reject(err);
-                user.logout();
                 $location.path('/login');
             });
             
@@ -167,6 +164,62 @@ angular.module('suggestionboxApp')
             });
             
             return deferred.promise;
+        },
+        recentSuggestions: function()
+        {
+            var deferred = $q.defer();
+            
+            $http.get(API.url + 'suggestions/recent')
+            .success(function(res){
+                deferred.resolve(res);
+            })
+            .error(function(err){
+                deferred.reject(err);
+            });
+            
+            return deferred.promise;
+        },
+        isPending: function(id)
+        {
+            var deferred = $q.defer();
+            
+            $http.get(API.url + 'suggestion/checkpending?id='+id)
+            .success(function(res){
+                deferred.resolve(res);
+            })
+            .error(function(err){
+                deferred.reject(err);
+            });
+            
+            return deferred.promise;
+        },
+        isApproved: function(id)
+        {
+            var deferred = $q.defer();
+            
+            $http.get(API.url + 'suggestion/checkapproved?id='+id)
+            .success(function(res){
+                deferred.resolve(res);
+            })
+            .error(function(err){
+                deferred.reject(err);
+            });
+            
+            return deferred.promise;
+        },
+        isOwner: function(id)
+        {
+            var deferred = $q.defer();
+            
+            $http.get(API.url + 'suggestion/isowner?id='+id)
+            .success(function(res){
+                deferred.resolve(res);
+            })
+            .error(function(err){
+                deferred.reject(err);
+            });
+            
+            return deferred.promise; 
         }
     };
   });

@@ -8,20 +8,25 @@
  * Controller of the suggestionboxApp
  */
 angular.module('suggestionboxApp')
-  .controller('SuggestionCtrl', function ($scope,$routeParams,layout,suggestions,toastr) {
+  .controller('SuggestionCtrl', function ($scope,$routeParams,layout,suggestions,SweetAlert) {
 
     $scope.sugg = suggestions.suggestion();
+    console.log($scope.sugg);
     
     $scope.like = function(id)
     {
         suggestions.likeSuggestion(id)
         .then(function(){
-            toastr.info('You just liked suggestion '+id);
+            SweetAlert.swal('Thanks for voting!', '', 'success');
+            suggestions.getSuggestion(id)
+            .then(function(res){
+                $scope.sugg = res;
+            })
         });
     };
 
     
     // Stick footer to bottom of screen
-    layout.stickyFooter(564);
+    layout.stickyFooter(544);
     
   });

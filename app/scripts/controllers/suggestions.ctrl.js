@@ -24,7 +24,6 @@ angular.module('suggestionboxApp')
     $scope.viewAllSuggestions = function()
     {
         suggestions.getSuggestions().then(function(res){
-            console.log(res);
             $scope.suggestions = res;
             $scope.count = res.length;
             $scope.mySuggestions = true;
@@ -33,7 +32,7 @@ angular.module('suggestionboxApp')
     };
     
     $scope.openSuggestion = function(sugg){
-        if(sugg.status === 1){
+        if(sugg.status === '1'){
             $location.path('/suggestion/'+sugg.id);
         } else {
             $location.path('/suggestions/pending/'+sugg.id);

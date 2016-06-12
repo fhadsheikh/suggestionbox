@@ -1,12 +1,17 @@
-$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+
+
+//$fa-font-path: "../font";
+@import "font-awesome/scss/font-awesome";
 // bower:scss
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+@import "font-awesome/scss/font-awesome.scss";
 // endbower
 @import "https://fonts.googleapis.com/css?family=Roboto:400,700";
 @import "suggestionbox.scss";
 @import "components/searchbox.scss";
 @import "shortcuts.scss";
 @import "messages.scss";
+@import "loginform.scss";
 
 
 
@@ -34,6 +39,10 @@ a:hover{
 }
 ::-moz-selection {
   background: #98e4ff; /* Gecko Browsers */
+}
+
+.has-error .form-control {
+    border-color: #e6b2b1;
 }
 
 
@@ -111,14 +120,6 @@ a:hover{
 
 .navbar-nav li:hover{
 //    font-weight: 600;
-}
-
-// Login Page
-.login-title{
-    text-align: center;
-    font-family: 'Pacifico', cursive;
-    font-size:44pt;
-    padding-bottom:20px;
 }
 
 .footer{

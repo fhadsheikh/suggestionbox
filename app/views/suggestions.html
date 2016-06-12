@@ -54,7 +54,8 @@
                 </div>
                 <div class="col-md-3 right">
                     <div class="sugg-suggestion-rating" ng-show="suggestion.status == 1">
-                        <i class="fa fa-thumbs-o-up sugg-suggestion-rating-thumb"></i> {{suggestion.votes | number}}
+                        <span ng-show="suggestion.hasVoted"><i class="fa fa-check sugg-suggestion-rating-thumb"></i> {{suggestion.votes | number}}</span>
+                        <span ng-hide="suggestion.hasVoted"><i class="fa fa-thumbs-o-up sugg-suggestion-rating-thumb"></i> {{suggestion.votes | number}}</span>
                     </div>
                     <div class="sugg-suggestion-rating" ng-hide="suggestion.status == 1">
                         <i class="fa fa-hourglass-2 sugg-suggestion-rating-thumb"></i>
