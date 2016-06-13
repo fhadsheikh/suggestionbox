@@ -5,7 +5,6 @@
         <title>MyClockWork</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.) styles/vendor.css -->
         <!-- bower:css -->
         <link rel='stylesheet' href='/bower_components/sweetalert/dist/sweetalert.css' />
@@ -19,18 +18,14 @@
         <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
         <base href="/">
     </head>
+
     <body ng-app="suggestionboxApp" ng-controller="MainCtrl as main">
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-    <!-- Add your site or application content here -->
+
     <header ng-show="main.header"></header>
 
     <div class="page" ng-view="" autoscroll="true"></div>
 
-
     <footer ng-show="main.footer"></footer>
-
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -47,7 +42,7 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+    <script src="bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -62,32 +57,32 @@
     <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
     <script src="bower_components/jquery-mousewheel/jquery.mousewheel.js"></script>
     <script src="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js"></script>
+    <script src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
+    <script src="bower_components/a0-angular-storage/dist/angular-storage.js"></script>
     <!-- endbower -->
-    <script src="bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
-    <script src="bower_components/a0-angular-storage/dist/angular-storage.min.js"></script>
-    <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.min.js"></script>
-    <script src="bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="bower_components/ng-scrollbars/dist/scrollbars.min.js"></script>
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/suggestions.ctrl.js"></script>
-    <script src="scripts/controllers/suggestion.ctrl.js"></script>
-    <script src="scripts/controllers/newsuggestion.ctrl.js"></script>
-    <script src="scripts/controllers/pendingsuggestion.ctrl.js"></script>
-    <script src="scripts/controllers/login.ctrl.js"></script>
-    <script src="scripts/controllers/main.ctrl.js"></script>
-    <script src="scripts/directives/footer.drv.js"></script>
-    <script src="scripts/directives/header.drv.js"></script>
-    <script src="scripts/services/authinjector.srv.js"></script>
-    <script src="scripts/services/api.cnst.js"></script>
-    <script src="scripts/services/suggestions.srv.js"></script>
-    <script src="scripts/services/layout.srv.js"></script>
-    <script src="scripts/services/user.srv.js"></script>
-    <script src="scripts/controllers/admin.js"></script>
-    <script src="scripts/controllers/forbidden.ctrl.js"></script>
-    <script src="scripts/controllers/notfound.ctrl.js"></script>
+    <script src="app.js"></script>
+    <script src="core/main/main.ctrl.js"></script>
+    <script src="core/login/login.ctrl.js"></script>
+    <script src="core/not-found/notfound.ctrl.js"></script>
+    <script src="core/forbidden/forbidden.ctrl.js"></script>
+    <script src="core/suggestions/suggestions.ctrl.js"></script>
+    <script src="core/suggestion/suggestion.ctrl.js"></script>
+    <script src="core/new-suggestion/newsuggestion.ctrl.js"></script>
+    <script src="core/pending-suggestion/pendingsuggestion.ctrl.js"></script>
+    <script src="core/admin/admin.ctrl.js"></script>
+    <script src="common/header/header.drv.js"></script>
+    <script src="common/footer/footer.drv.js"></script>
+    <script src="common/search/search.drv.js"></script>
+    <script src="common/search-card/search-card.drv.js"></script>
+    <script src="services/authinjector.srv.js"></script>
+    <script src="services/suggestions.srv.js"></script>
+    <script src="services/user.srv.js"></script>
+    <script src="services/api.cnst.js"></script>
+    <script src="services/layout.srv.js"></script>
     <!-- endbuild -->
 </body>
 </html>

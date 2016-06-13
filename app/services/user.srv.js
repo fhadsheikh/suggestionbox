@@ -46,10 +46,13 @@ angular.module('suggestionboxApp')
             if(store.get('jwt') !== null){
                 
                 var jwt = jwtHelper.decodeToken(localStorage.getItem('jwt'));
+
                 if(jwt.data.permissions[permission] == 1){
                     deferred.resolve('User has access');
+                    console.log(jwt.data.firstname+' is a '+permission);
                 } else {
                     deferred.reject('Access denied');
+                    console.log(jwt.data.firstname+' is not a '+permission);
                 }
             }
             return deferred.promise;

@@ -22,7 +22,7 @@ module.exports = function(config) {
       // bower:js
       'bower_components/jquery/dist/jquery.js',
       'bower_components/angular/angular.js',
-      'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
+      'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
       'bower_components/angular-animate/angular-animate.js',
       'bower_components/angular-aria/angular-aria.js',
       'bower_components/angular-cookies/angular-cookies.js',
@@ -37,6 +37,9 @@ module.exports = function(config) {
       'bower_components/angular-toastr/dist/angular-toastr.tpls.js',
       'bower_components/jquery-mousewheel/jquery.mousewheel.js',
       'bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.js',
+      'bower_components/angular-jwt/dist/angular-jwt.js',
+      'bower_components/a0-angular-storage/dist/angular-storage.js',
+      'bower_components/ng-scrollbars/dist/scrollbars.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

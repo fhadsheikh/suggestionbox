@@ -9,7 +9,8 @@
 angular.module('suggestionboxApp')
   .directive('header', function () {
         return {
-          templateUrl: 'views/header.view.html',
-          restrict: 'E'
+          templateUrl: 'common/header/header.view.html',
+          restrict: 'E',
+          replace:true
         };
   });

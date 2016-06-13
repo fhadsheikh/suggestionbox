@@ -9,6 +9,16 @@
  */
 angular.module('suggestionboxApp')
   .controller('SuggestionsCtrl', function ($scope,$location,suggestions,layout) {
+
+    // For search directive
+    $scope.search = {
+        title: 'Suggestions',
+        description: 'Vote for suggestions that you would like to see added into ClockWork',
+        filter: 'search',
+        placeHolder: 'Search Suggestions'
+    }
+
+    console.log($scope.search);
     
     $scope.viewMySuggestions = function()
     {

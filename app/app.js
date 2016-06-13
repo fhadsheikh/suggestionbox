@@ -28,7 +28,7 @@ angular
     .config(function ($routeProvider,$locationProvider,$httpProvider) {
         $routeProvider
           .when('/login', {
-            templateUrl: 'views/login.view.html',
+            templateUrl: 'core/login/login.view.html',
             controller: 'LoginCtrl',
             controllerAs: 'login',
             resolve: {
@@ -40,7 +40,7 @@ angular
             }
           })
           .when('/suggestions', {
-            templateUrl: 'views/suggestions.html',
+            templateUrl: 'core/suggestions/suggestions.view.html',
             controller: 'SuggestionsCtrl',
             controllerAs: 'suggestions',
             resolve: {
@@ -50,7 +50,7 @@ angular
             }
           })
           .when('/suggestion/:id', {
-            templateUrl: 'views/suggestion.html',
+            templateUrl: 'core/suggestion/suggestion.view.html',
             controller: 'SuggestionCtrl',
             controllerAs: 'suggestion',
             resolve: {
@@ -69,7 +69,7 @@ angular
             }
           })
           .when('/suggestions/pending/:id', {
-            templateUrl: 'views/pendingsuggestion.html',
+            templateUrl: 'core/pending-suggestion/pendingsuggestion.html',
             controller: 'PendingsuggestionCtrl',
             resolve: {
                 authenticate: function(user){
@@ -97,7 +97,7 @@ angular
             }
           })
           .when('/newsuggestion', {
-            templateUrl: 'views/newsuggestion.html',
+            templateUrl: 'core/new-suggestion/newsuggestion.html',
             controller: 'NewsuggestionCtrl',
             controllerAs: 'newsuggestion',
             resolve: {
@@ -107,16 +107,22 @@ angular
             }
           })
           .when('/admin', {
-            templateUrl: 'views/admin.html',
+            templateUrl: 'core/admin/admin.view.html',
             controller: 'AdminCtrl',
             resolve: {
                 authenticate: function(user){
-                    return user.checkLogin() && user.isAllowed('admin');
+                    return user.checkLogin();
+                },
+                isAllowed: function(user,$location){
+                     return user.isAllowed('admin')
+                     .catch(function(){
+                         $location.path('/forbidden');
+                     })
                 }
             }
           })
           .when('/forbidden', {
-            templateUrl: 'views/forbidden.view.html',
+            templateUrl: 'core/forbidden/forbidden.view.html',
             controller: 'ForbiddenCtrl',
             resolve: {
                 authenticate: function(user){
@@ -125,7 +131,7 @@ angular
             }
           })
           .when('/notfound', {
-            templateUrl: 'views/notfound.view.html',
+            templateUrl: 'core/not-found/notfound.view.html',
             controller: 'NotfoundCtrl',
             controllerAs: 'notfound'
           })
@@ -136,7 +142,6 @@ angular
         $httpProvider.interceptors.push('authInjector');
     
         $locationProvider.html5Mode(true);
-    
     
     })
 

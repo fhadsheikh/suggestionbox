@@ -10,8 +10,9 @@ angular.module('suggestionboxApp')
   .directive('footer', function () {
 
         return {
-          templateUrl: 'views/footer.html',
-          restrict: 'E'
+          templateUrl: 'common/footer/footer.view.html',
+          restrict: 'E',
+          replace:true
         };
 
     

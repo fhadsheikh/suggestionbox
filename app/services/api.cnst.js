@@ -9,5 +9,5 @@
  */
 angular.module('suggestionboxApp')
   .constant('API', {
-    'url':'http://devapps/api/'
+    'url':'http://localhost/api/'
 });
